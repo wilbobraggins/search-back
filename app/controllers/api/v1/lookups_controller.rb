@@ -1,11 +1,12 @@
 module Api
   module V1
     class LookupsController < ApplicationController
+      before_action :authorize_access_request! 
       before_action :set_lookup, only: [:show, :update, :destroy]
 
       # GET /lookups
       def index
-        @lookups = Lookup.all
+        @lookups = current_user.lookups.all
 
         render json: @lookups
       end
@@ -17,7 +18,7 @@ module Api
 
       # POST /lookups
       def create
-        @lookup = Lookup.new(lookup_params)
+        @lookup = current_user.lookups.build(lookup_params)
 
         if @lookup.save
           render json: @lookup, status: :created, location: @lookup
@@ -43,7 +44,7 @@ module Api
       private
         # Use callbacks to share common setup or constraints between actions.
         def set_lookup
-          @lookup = Lookup.find(params[:id])
+          @lookup = current_user.lookups.find(params[:id])
         end
 
         # Only allow a trusted parameter "white list" through.

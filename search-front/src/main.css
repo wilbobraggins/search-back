@@ -70,6 +70,10 @@
   @apply text-gray-800;
 }
 
+.font-sans {
+   @apply appearance-none block w-full bg-gray-300 text-gray-800 border border-gray-700 rounded py-3 px-4 leading-tight;
+}
+
 /**
  * This injects all of Tailwind's utility classes, generated based on your
  * config file.

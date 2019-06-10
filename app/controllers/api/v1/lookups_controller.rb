@@ -21,7 +21,7 @@ module Api
         @lookup = current_user.lookups.build(lookup_params)
 
         if @lookup.save
-          render json: @lookup, status: :created, location: @lookup
+          render json: @lookup, status: :created
         else
           render json: @lookup.errors, status: :unprocessable_entity
         end
@@ -49,7 +49,7 @@ module Api
 
         # Only allow a trusted parameter "white list" through.
         def lookup_params
-          params.require(:lookup).permit(:search, :url, :user_id)
+          params.require(:lookup).permit(:search, :user_id)
         end
     end
   end

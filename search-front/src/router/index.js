@@ -9,6 +9,11 @@ export default new Router({
   mode: 'history',
   routes: [
     {
+      path: '/lookups',
+      name: 'Lookups',
+      component: Lookup
+    },
+    {
       path: '/',
       name: 'Signin',
       component: Signin
@@ -17,11 +22,6 @@ export default new Router({
       path: '/signup',
       name: 'Signup',
       component: Signup
-    },
-    {
-      path: '/lookups',
-      name: 'Lookups',
-      component: Lookup
     }
   ]
 })

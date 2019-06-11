@@ -13,13 +13,17 @@ module Api
 
       # GET /lookups/1
       def show
-        render json: @lookup
+        
+        @url = Lookup.websearch(@lookup.search)
+        @show = Lookup.pull_resaults(@url)
+        render json: @show
       end
 
       # POST /lookups
       def create
-        @lookup = current_user.lookups.build(lookup_params)
-
+        @lookup = current_user.lookups.create(lookup_params)
+        @url = Lookup.websearch(@lookup.search)
+        Lookup.create(url: "#{@url}")
         if @lookup.save
           render json: @lookup, status: :created
         else

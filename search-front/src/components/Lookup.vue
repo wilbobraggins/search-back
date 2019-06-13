@@ -93,7 +93,7 @@ export default {
     },
     updateLookup (lookup) {
       this.editedLookup = ''
-      this.$http.secured.patch(`/api/v1/lookups/${lookup.id}`, { lookup: { title: lookup.search } })
+      this.$http.secured.patch(`/api/v1/lookups/${lookup.id}`, { lookup: { search: lookup.search } })
         .catch(error => this.setError(error, 'Cannot update Search'))
     }
   }

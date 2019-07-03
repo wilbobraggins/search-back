@@ -1,24 +1,20 @@
-# README
+# Rails Datascraper Serving a Vue frontend.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Rails backend for storing data, dealing with authentication, and serving logic for web-scraping.
 
-Things you may want to cover:
+Used:
 
-* Ruby version
+• Rails 5.2.3
 
-* System dependencies
+• Ruby  2.6.0
 
-* Configuration
+• Gem jwt-sessions
 
-* Database creation
+• Gem rack-cors
 
-* Database initialization
+• Gem redis
 
-* How to run the test suite
+The idea with the backend was to create a CRUD app to handle authentication tokens and scrape data from 'stackoverflow.com' all while rendering to a seperate Vue.js app.
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
 
-* ...
